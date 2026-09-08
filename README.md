@@ -73,3 +73,6 @@ prompt schema in `supabase/functions/_shared/prompts.ts` + a card in
 `src/lib/constants.ts`. Additional AI providers slot in behind the same four Edge
 Functions. Future input types (images/video) extend `process-document` only.
 # ACT_AI
+
+
+Working Application: https://act-ai-ten.vercel.app
