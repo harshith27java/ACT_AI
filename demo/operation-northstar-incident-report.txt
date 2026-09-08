@@ -1,0 +1,91 @@
+================================================================================
+CYBERSECURITY INCIDENT REPORT — OPERATION NORTHSTAR
+================================================================================
+CLASSIFICATION: SYNTHETIC / TRAINING DATA
+This report is explicitly fictional and was created as a demonstration dataset
+for the ACT (Automated Content Transformation) project. All organizations,
+indicators, and events are invented. No real intelligence is contained here.
+
+--------------------------------------------------------------------------------
+1. EXECUTIVE OVERVIEW
+--------------------------------------------------------------------------------
+On 12 August 2026, the fictional organization Meridian Utilities detected
+unauthorized access in its corporate network. The intrusion, tracked internally
+as Operation Northstar, began with a phishing campaign against finance staff
+and progressed to the encryption of 34 endpoints. Customer-facing systems were
+not affected. The incident was contained within 72 hours.
+
+--------------------------------------------------------------------------------
+2. INCIDENT TIMELINE
+--------------------------------------------------------------------------------
+Day 0 — 12 August 2026, 03:14 UTC: Initial phishing emails delivered to 118
+employees, impersonating a payroll software update. Nine users opened the
+attachment; three entered credentials on a fake single sign-on page.
+
+Day 0 — 05:02 UTC: Attacker authenticated to the corporate VPN using stolen
+credentials for a finance department account. Multi-factor prompts were
+approved through push fatigue (14 repeated prompts).
+
+Day 1 — 13 August: Lateral movement via Server Message Block (SMB) protocol.
+Attacker staged tooling on two file servers and exfiltrated an estimated
+4.2 GB of internal finance documents to an external storage service.
+
+Day 2 — 14 August, 22:47 UTC: Ransomware payload executed across 34 endpoints
+in the finance and HR departments. Files were encrypted with a .northstar
+extension and ransom notes were dropped.
+
+Day 3 — 15 August: Incident response retained. Affected hosts isolated. Domain
+password reset enforced. Backups restored from immutable snapshots.
+
+--------------------------------------------------------------------------------
+3. ATTACK VECTOR
+--------------------------------------------------------------------------------
+The investigation identified phishing emails as the initial access vector.
+The lure used a cloned payroll portal. Credential theft was followed by
+multi-factor push-fatigue approval, VPN access, and lateral movement over SMB.
+
+--------------------------------------------------------------------------------
+4. AFFECTED SYSTEMS
+--------------------------------------------------------------------------------
+- 34 user endpoints (Windows 11, finance and HR departments)
+- 2 Windows file servers used for staging
+- Corporate VPN gateway (credential abuse; no device compromise found)
+- Finance document repository (4.2 GB exfiltrated)
+
+--------------------------------------------------------------------------------
+5. OBSERVED INDICATORS
+--------------------------------------------------------------------------------
+- Phishing emails from the domain payroll-updates.example (synthetic domain)
+- Fake single sign-on page hosted at hr-portal-verify.example (synthetic)
+- VPN sessions from IP ranges 203.0.113.0/24 (RFC 5737 documentation range)
+- SMB administrative share access outside business hours
+- Ransom note file: RESTORE-FILES.txt
+- Encrypted file extension: .northstar
+
+--------------------------------------------------------------------------------
+6. IMPACT
+--------------------------------------------------------------------------------
+- 34 endpoints encrypted; 11 days of downtime for affected departments
+- 4.2 GB of finance documents exfiltrated
+- No evidence of impact to customer-facing or operational technology systems
+- Estimated recovery cost (fictional): 180,000 USD
+
+--------------------------------------------------------------------------------
+7. MITIGATION AND CONTAINMENT
+--------------------------------------------------------------------------------
+- Affected hosts isolated within 4 hours of detection
+- Domain-wide credential reset and MFA re-enrollment enforced
+- Number matching enabled for all MFA push approvals
+- Immutable backups restored; recovery completed on 17 August
+- Phishing domain reported to the registrar and blocked at the mail gateway
+
+--------------------------------------------------------------------------------
+8. RECOMMENDATIONS
+--------------------------------------------------------------------------------
+1. Enforce phishing-resistant MFA (FIDO2 keys) for all remote access.
+2. Deploy email authentication (DMARC with quarantine policy) — currently
+   DMARC is configured in monitor-only mode.
+3. Segment the finance VLAN to restrict SMB traffic between workstations.
+4. Reduce VPN session lifetime and require device health checks.
+5. Conduct quarterly phishing simulation exercises for finance and HR.
+6. Retain endpoint detection telemetry for at least 180 days.
